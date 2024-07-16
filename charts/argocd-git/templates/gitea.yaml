@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitea
+  syncPolicy:
+    automated:
+      selfHeal: true
+
+  source:
+    chart: gitea-chart
+    repoURL: https://dl.gitea.com/charts/
+    targetRevision: 10.3.0
+    helm:
+      valuesObject:
+        gitea:
+          admin:
+            passwordMode: initialOnlyRequireReset
+        ingress:
+          enabled: true
+          hosts:
+            - host: gitea.dev.local
+              paths:
+                - /
+          annotations:
+            # cert-manager.io/cluster-issuer: letsencrypt-prod
