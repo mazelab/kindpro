@@ -21,6 +21,12 @@ spec:
       valuesObject:
         global:
           domain: "argocd.dev.local"
+        dex:
+          enabled: false
+        notifications:
+          enabled: false
+        applicationSet:
+          enabled: false
         server:
           extraArgs:
             - --insecure

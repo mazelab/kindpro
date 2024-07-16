@@ -1,0 +1,21 @@
+# create a namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: reloader
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: eso
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: certmanager
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gitea
+

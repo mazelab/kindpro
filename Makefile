@@ -1,2 +1,2 @@
 init-argo-git:
-	@helm template charts/argocd-git | kubectl apply -f -
+	@helm template charts/_setup-root | kubectl apply -f -
