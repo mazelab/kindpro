@@ -27,6 +27,7 @@ spec:
           hosts:
             - host: gitea.dev.local
               paths:
-                - /
+                - path: /
+                  pathType: Prefix
           annotations:
             # cert-manager.io/cluster-issuer: letsencrypt-prod
