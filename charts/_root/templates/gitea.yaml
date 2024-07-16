@@ -14,7 +14,7 @@ spec:
       selfHeal: true
 
   source:
-    chart: gitea-chart
+    chart: gitea
     repoURL: https://dl.gitea.com/charts/
     targetRevision: 10.3.0
     helm:
