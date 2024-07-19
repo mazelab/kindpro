@@ -37,7 +37,8 @@ spec:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
               cert-manager.io/cluster-issuer: "my-ca-issuer"
-            extraTls:
-              - hosts:
-                - argocd.dev.local
-                secretName: argocd-tls
+            tls: true
+            # extraTls:
+            #   - hosts:
+            #     - argocd.dev.local
+            #     secretName: argocd-tls
