@@ -4,6 +4,8 @@ metadata:
   name: cert-manager
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
 spec:
   project: default
   destination:
@@ -12,7 +14,8 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
-
+    syncOptions:     # Sync options which modifies sync behavior
+      - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
   source:
     repoURL: https://charts.jetstack.io
     chart: cert-manager

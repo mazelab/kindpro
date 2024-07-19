@@ -12,10 +12,5 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: certmanager
----
-apiVersion: v1
-kind: Namespace
-metadata:
   name: gitea
 

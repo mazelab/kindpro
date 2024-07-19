@@ -4,6 +4,8 @@ metadata:
   name: self-signed
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   project: default
   destination:
