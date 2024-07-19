@@ -38,6 +38,6 @@ spec:
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
               cert-manager.io/cluster-issuer: "selfsigned-issuer"
             extraTls:
-                - hosts:
-                  - argocd.dev.local
+              - hosts:
+                - argocd.dev.local
                   #secretName: argocd-tls
