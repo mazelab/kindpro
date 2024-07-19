@@ -27,8 +27,17 @@ spec:
           enabled: false
         applicationSet:
           enabled: false
+        configs:
+          params:
+            server.insecure: true
         server:
-          extraArgs:
-            - --insecure
           ingress:
             enabled: true
+            annotations:
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+              cert-manager.io/cluster-issuer: "selfsigned-issuer"
+            extraTls:
+                - hosts:
+                  - argocd.dev.local
+                  #secretName: argocd-tls
