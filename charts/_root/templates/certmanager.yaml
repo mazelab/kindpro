@@ -14,15 +14,14 @@ spec:
       selfHeal: true
 
   source:
-    repoURL: https://github.com/mazelab/argocd-root-basics.git
-    path: charts/self-signed-cert-manager
-    targetRevision: main
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: v1.15.1
     helm:
       valuesObject:
-        certmanager:
-          global:
-            crds:
-              enabled: true
-            leaderElection:
-              namespace: certmanager
+        global:
+          crds:
+            enabled: true
+          leaderElection:
+            namespace: certmanager
 
