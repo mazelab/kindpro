@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: certmanager
+  syncPolicy:
+    automated:
+      selfHeal: true
+
+  source:
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: 1.51.1
+    helm:
+      valuesObject:
+        global:
+          crds:
+            enabled: true
+          leaderElection:
+            namespace: certmanager
+
