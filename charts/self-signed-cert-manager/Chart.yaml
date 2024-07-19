@@ -1,0 +1,10 @@
+apiVersion: v2
+version: 1.0.0
+name: self-signed-cert-manager
+description: A Helm umbrella chart for Cert Manager
+appVersion: 1.51.1
+dependencies:
+  - name: cert-manager
+    alias: certmanager
+    repository: https://charts.jetstack.io
+    version: v1.15.1
