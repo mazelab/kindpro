@@ -40,4 +40,4 @@ spec:
             extraTls:
               - hosts:
                 - argocd.dev.local
-                  #secretName: argocd-tls
+                secretName: argocd-tls
