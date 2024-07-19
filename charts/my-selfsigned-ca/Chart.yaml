@@ -1,0 +1,4 @@
+apiVersion: v2
+version: 1.0.0
+name: my-self-signed-ca
+description: A Helm chart to create a self signed certificate with cert-manager

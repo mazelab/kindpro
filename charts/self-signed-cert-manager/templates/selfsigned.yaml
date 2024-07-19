@@ -1,8 +1,0 @@
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: mkcert-issuer
-  namespace: {{ $.Values.certmanager.namespace }}
-spec:
-  ca:
-    secretName: mkcert-ca-key-pair

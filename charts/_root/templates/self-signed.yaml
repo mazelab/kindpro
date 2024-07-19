@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: certmanager
+  syncPolicy:
+    automated:
+      selfHeal: true
+
+  source:
+    repoURL: https://github.com/mazelab/argocd-root-basics.git
+    path: charts/my-selfsigned-ca
+    targetRevision: main
+    helm:
+      valuesObject:
+        namespace: certmanager
+
