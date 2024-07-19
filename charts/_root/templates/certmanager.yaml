@@ -19,9 +19,9 @@ spec:
     targetRevision: v1.15.1
     helm:
       valuesObject:
+        crds:
+          enabled: true
         global:
-          crds:
-            enabled: true
           leaderElection:
             namespace: certmanager
 
