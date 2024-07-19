@@ -19,7 +19,6 @@ spec:
     targetRevision: v1.15.1
     helm:
       valuesObject:
-        installCRDs: true
         crds:
           enabled: true
         global:
