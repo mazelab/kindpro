@@ -23,10 +23,9 @@ spec:
     group: cert-manager.io
 ---
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: my-ca-issuer
-  namespace: {{ $.Values.namespace }}
 spec:
   ca:
     secretName: root-secret
