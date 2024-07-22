@@ -29,7 +29,7 @@ spec:
           enabled: false
         configs:
           params:
-            server.insecure: false
+            server.insecure: true
         server:
           ingress:
             enabled: true
