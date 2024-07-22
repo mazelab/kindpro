@@ -33,6 +33,7 @@ spec:
         server:
           ingress:
             enabled: true
+            hostname: argocd.dev.local
             annotations:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
