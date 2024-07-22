@@ -27,6 +27,9 @@ spec:
           enabled: false
         applicationSet:
           enabled: false
+        configs:
+          params:
+            server.insecure: false
         server:
           ingress:
             enabled: true
