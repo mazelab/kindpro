@@ -20,7 +20,7 @@ spec:
     helm:
       valuesObject:
         global:
-          domain: "argocd.dev.local"
+          domain: {{ .Values.argocd.hostname }}
         dex:
           enabled: false
         notifications:
@@ -37,13 +37,13 @@ spec:
             annotations:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
               nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-              cert-manager.io/cluster-issuer: "my-ca-issuer"
+              cert-manager.io/cluster-issuer: {{ .Values.certManager.clusterIssuer }}
             hosts:
-              - argocd.dev.local
+              - {{ .Values.argocd.hostname }}
             paths:
               - /
             pathType: Prefix
             tls:
               - hosts:
-                - argocd.dev.local
+                - {{ .Values.argocd.hostname }}
                 secretName: argocd-tls

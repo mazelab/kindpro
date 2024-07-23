@@ -22,4 +22,6 @@ spec:
     helm:
       valuesObject:
         namespace: certmanager
+        certManager:
+          clusterIssuer: {{ .Values.certManager.clusterIssuer }}
 

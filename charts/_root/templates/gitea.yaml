@@ -33,7 +33,7 @@ spec:
         ingress:
           enabled: true
           hosts:
-            - host: gitea.dev.local
+            - host: {{ .Values.gitea.hostname }}
               paths:
                 - path: /
                   pathType: Prefix

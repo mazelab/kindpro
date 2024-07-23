@@ -9,7 +9,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: my-selfsigned-ca
-  namespace: {{ $.Values.namespace }}
+  namespace: {{ .Values.namespace }}
 spec:
   isCA: true
   commonName: my-selfsigned-ca
@@ -25,7 +25,7 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: my-ca-issuer
+  name: {{ .Values.certManager.clusterIssuer }}
 spec:
   ca:
     secretName: root-secret

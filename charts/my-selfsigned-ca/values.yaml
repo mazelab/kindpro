@@ -1,1 +1,4 @@
 namespace: certmanager
+
+certManager:
+  clusterIssuer: selfsigned-issuer
