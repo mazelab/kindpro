@@ -30,6 +30,11 @@ spec:
 
         persistence:
           enabled: true
+        gitea:
+          config:
+            server:
+              # ROOT_URL: https://{{ .Values.gitea.hostname }}
+              HTTP_PORT: 3000
         service:
           http:
             port: 80
