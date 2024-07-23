@@ -29,20 +29,21 @@ spec:
           enabled: false
         configs:
           params:
-            server.insecure: false
+            server.insecure: true
         server:
           ingress:
             enabled: true
-            hostname: argocd.dev.local
+            ingressClassName: nginx
             annotations:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+              nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
               cert-manager.io/cluster-issuer: "my-ca-issuer"
+            hosts:
+              - argocd.dev.local
+            paths:
+              - /
+            pathType: Prefix
             tls:
               - hosts:
                 - argocd.dev.local
                 secretName: argocd-tls
-            # extraTls:
-            #   - hosts:
-            #     - argocd.dev.local
-            #     secretName: argocd-tls
