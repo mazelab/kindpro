@@ -34,11 +34,15 @@ spec:
           ingress:
             enabled: true
             className: nginx
-            hostname: argocd.dev.local
             annotations:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
               nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
               cert-manager.io/cluster-issuer: "my-ca-issuer"
+            hosts:
+              - host: argocd.dev.local
+                paths:
+                  - path: /
+                    pathType: Prefix
             tls:
               - hosts:
                 - argocd.dev.local
