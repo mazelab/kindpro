@@ -40,10 +40,16 @@ spec:
             port: 80
         ingress:
           enabled: true
+          tls:
+            - hosts:
+              - {{ .Values.gitea.hostname }}
+              secretName: gitea-tls
           hosts:
             - host: {{ .Values.gitea.hostname }}
               paths:
                 - path: /
                   pathType: Prefix
           annotations:
-            # cert-manager.io/cluster-issuer: letsencrypt-prod
+            cert-manager.io/cluster-issuer: {{ .Values.certManager.clusterIssuer }}
+            nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+            nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
