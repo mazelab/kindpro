@@ -7,10 +7,9 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: eso
+  name: external-secrets
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: gitea
-
