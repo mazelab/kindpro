@@ -14,12 +14,12 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
-    syncOptions:     # Sync options which modifies sync behavior
+    syncOptions: # Sync options which modifies sync behavior
       - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
   source:
     repoURL: https://charts.jetstack.io
     chart: cert-manager
-    targetRevision: v1.15.1
+    targetRevision: v1.15.3
     helm:
       valuesObject:
         crds:
@@ -27,4 +27,3 @@ spec:
         global:
           leaderElection:
             namespace: certmanager
-
