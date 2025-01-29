@@ -30,6 +30,7 @@ spec:
 
         persistence:
           enabled: true
+          create: false
           claimName: local-pvc
           mountPath: /data
         gitea:
