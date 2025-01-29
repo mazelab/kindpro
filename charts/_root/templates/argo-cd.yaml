@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: argo-cd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
@@ -26,7 +26,7 @@ spec:
         notifications:
           enabled: false
         applicationSet:
-          enabled: false
+          enabled: true
         configs:
           params:
             server.insecure: true

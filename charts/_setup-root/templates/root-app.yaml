@@ -3,13 +3,13 @@ kind: Application
 metadata:
   name: root-app
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: https://github.com/mazelab/argocd-root-basics.git
     path: charts/_root
-    targetRevision: main
+    targetRevision: feature/persistence
   destination:
     server: https://kubernetes.default.svc
     namespace: default

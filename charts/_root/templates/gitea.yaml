@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: gitea
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
@@ -24,18 +24,23 @@ spec:
         redis:
           enabled: true
         postgresql:
-          enabled: true
+          enabled: false
         postgresql-ha:
           enabled: false
 
         persistence:
           enabled: true
+          existingClaim: local-pvc
+          mountPath: /data
         gitea:
           config:
+            database:
+              DB_TYPE: sqlite3
             server:
               # ROOT_URL: https://{{ .Values.gitea.hostname }}
               HTTP_PORT: 3000
               PROTOCOL: http
+              START_SSH_SERVER: false
         service:
           http:
             port: 80
@@ -43,14 +48,15 @@ spec:
           enabled: true
           tls:
             - hosts:
-              - {{ .Values.gitea.hostname }}
+                - { { .Values.gitea.hostname } }
               secretName: gitea-tls
           hosts:
-            - host: {{ .Values.gitea.hostname }}
+            - host: { { .Values.gitea.hostname } }
               paths:
                 - path: /
                   pathType: Prefix
           annotations:
-            cert-manager.io/cluster-issuer: {{ .Values.certManager.clusterIssuer }}
+            cert-manager.io/cluster-issuer:
+              { { .Values.certManager.clusterIssuer } }
             nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
             nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
