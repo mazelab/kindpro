@@ -32,6 +32,8 @@ spec:
           enabled: true
         actions:
           enabled: true
+          provisioning:
+            enabled: true
         gitea:
           config:
             database:
