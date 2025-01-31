@@ -30,6 +30,8 @@ spec:
 
         persistence:
           enabled: true
+        actions:
+          enabled: true
         gitea:
           config:
             database:
