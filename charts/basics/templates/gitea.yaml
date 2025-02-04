@@ -40,15 +40,9 @@ spec:
               DB_TYPE: sqlite3
             server:
               # ROOT_URL: https://{{ .Values.gitea.hostname }}
-              HTTP_PORT: 3000
               PROTOCOL: http
               DISABLE_SSH: true
               START_SSH_SERVER: false
-        service:
-          http:
-            port: 80
-            type: ClusterIP
-            clusterIP:
         ingress:
           enabled: true
           tls:
