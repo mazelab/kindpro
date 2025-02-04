@@ -47,6 +47,7 @@ spec:
         service:
           http:
             port: 80
+            serviceType: ClusterIP
         ingress:
           enabled: true
           tls:
