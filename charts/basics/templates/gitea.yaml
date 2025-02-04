@@ -34,10 +34,9 @@ spec:
           enabled: true
           provisioning:
             enabled: true
-          statefulset:
-            actRunner:
-              config:
-                labels: "self-hosted:docker://catthehacker/ubuntu:act-latest,ubuntu-latest:docker://catthehacker/ubuntu:act-latest,ubuntu-22.04:docker://catthehacker/ubuntu:act-22.04"
+          # statefulset:
+          #   actRunner: |-
+          #     labels: "self-hosted:docker://catthehacker/ubuntu:act-latest,ubuntu-latest:docker://catthehacker/ubuntu:act-latest,ubuntu-22.04:docker://catthehacker/ubuntu:act-22.04"
         gitea:
           config:
             database:
