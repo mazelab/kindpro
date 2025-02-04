@@ -40,7 +40,7 @@ spec:
               DB_TYPE: sqlite3
             server:
               # ROOT_URL: https://{{ .Values.gitea.hostname }}
-              HTTP_PORT: 3000
+              HTTP_PORT: 80
               PROTOCOL: http
               DISABLE_SSH: true
               START_SSH_SERVER: false
