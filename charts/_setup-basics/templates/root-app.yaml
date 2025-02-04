@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/mazelab/argocd-root-basics.git
-    path: charts/_root
+    path: charts/basics
     targetRevision: feature/persistence
   destination:
     server: https://kubernetes.default.svc

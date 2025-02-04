@@ -1,0 +1,9 @@
+apiVersion: v2
+name: argo-cd-umbrella
+description: A Helm umbrella chart for Argo-CD
+version: 1.0.0
+
+dependencies:
+  - name: argo-cd
+    repository: https://argoproj.github.io/argo-helm
+    version: 7.7.7
