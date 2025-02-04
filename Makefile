@@ -38,4 +38,4 @@ get-initial-argo-password:
 	kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 setup-all: create-cluster inital-deploy-root-app ## Set up the entire environment
-    @echo "All setup tasks completed."
+	@echo "All setup tasks completed."
