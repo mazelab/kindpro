@@ -30,7 +30,7 @@ spec:
 
         service:
           http:
-            clusterIP: null
+            clusterIP: ""
         persistence:
           enabled: true
         actions:
