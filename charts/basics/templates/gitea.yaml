@@ -28,6 +28,9 @@ spec:
         postgresql-ha:
           enabled: false
 
+        service:
+          http:
+            clusterIP:
         persistence:
           enabled: true
         actions:
