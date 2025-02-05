@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/mazelab/kindpro.git
     path: charts/basics
-    targetRevision: main
+    targetRevision: {{ $.Values.branch }}
   destination:
     server: https://kubernetes.default.svc
     namespace: default
