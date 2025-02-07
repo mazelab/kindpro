@@ -26,8 +26,8 @@ spec:
         image:
           repository: otel/opentelemetry-collector-contrib
           tag: 0.110.0
-        command:
-          name: "otelcol-k8s"
+{{/*        command:*/}}
+{{/*          name: "otelcol-k8s"*/}}
 
         presets:
           logsCollection:
