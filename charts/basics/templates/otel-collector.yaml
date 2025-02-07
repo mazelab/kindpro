@@ -46,11 +46,10 @@ spec:
               endpoint: "jaeger-collector.jaeger:4317"  # endpoint for the Jaeger collector
               tls:
                 insecure: true
-            file:
-              path: /tmp/otel-collector-traces
           service:
             pipelines:
               traces:
                 receivers: [ otlp ]
 {{/*                exporters: [ debug ] #the traces can be found in otel collector pod logs. These aren't stored anywhere*/}}
-                exporters: [file]
+                exporters:
+                  [debug]
