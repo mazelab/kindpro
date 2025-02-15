@@ -1,8 +1,8 @@
 gitea:
-  hostname: gitea.dev.local
+  hostname: gitea.local.dev
 
 argocd:
-  hostname: argocd.dev.local
+  hostname: argocd.local.dev
 
 certManager:
   clusterIssuer: "my-ca-issuer"
