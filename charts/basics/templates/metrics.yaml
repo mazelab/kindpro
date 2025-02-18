@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: self-signed
+  name: metrics
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
@@ -17,7 +17,7 @@ spec:
 
   source:
     repoURL: https://github.com/mazelab/argocd-root-basics.git
-    path: charts/my-selfsigned-ca
+    path: charts/metrics
     targetRevision: main
     helm:
       valuesObject:
