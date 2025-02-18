@@ -1,0 +1,1 @@
+helm template metrics-server . --namespace metrics --output-dir rendered-files

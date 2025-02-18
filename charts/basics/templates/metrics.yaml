@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: self-signed
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: metrics
+  syncPolicy:
+    automated:
+      selfHeal: true
+
+  source:
+    repoURL: https://github.com/mazelab/argocd-root-basics.git
+    path: charts/my-selfsigned-ca
+    targetRevision: main
+    helm:
+      valuesObject:
+
+
