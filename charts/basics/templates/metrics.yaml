@@ -10,7 +10,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: certmanager
+    namespace: metrics
   syncPolicy:
     automated:
       selfHeal: true
