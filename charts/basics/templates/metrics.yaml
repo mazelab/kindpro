@@ -23,22 +23,3 @@ spec:
     targetRevision: {{ .Values.branch }}
     helm:
       valuesObject:
-        metrics-server:
-          apiService:
-            insecureSkipTLSVerify: false
-          extraArgs:
-            - --kubelet-insecure-tls
-            - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
-            - --kubelet-use-node-status-port
-            - --metric-resolution=15s
-#            - '--kubelet-certificate-authority="/etc/ssl/certs/ca.crt"'
-#          extraVolumes:
-#            - name: "kube-root-ca"
-#              configMap:
-#                name: kube-root-ca.crt
-#          extraVolumeMounts:
-#            - name: kube-root-ca
-#              mountPath: /etc/ssl/certs
-#              subPath: ca.crt
-#              readOnly: true
-
