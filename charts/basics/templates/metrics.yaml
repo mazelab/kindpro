@@ -10,7 +10,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: metrics
+    namespace: certmanager
   syncPolicy:
     automated:
       selfHeal: true
@@ -26,4 +26,15 @@ spec:
         metrics-server:
           apiService:
             insecureSkipTLSVerify: false
+          extraArgs:
+            - kubelet-certificate-authority: "/etc/ssl/certs/ca.crt"
+          extraVolumes:
+            - name: "kube-root-ca"
+              configMap:
+                name: kube-root-ca.crt
+          extraVolumeMounts:
+            - name: kube-root-ca
+              mountPath: /etc/ssl/certs
+              subPath: ca.crt
+              readOnly: true
 
