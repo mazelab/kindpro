@@ -27,7 +27,7 @@ spec:
           apiService:
             insecureSkipTLSVerify: false
           extraArgs:
-            - "--kubelet-certificate-authority: \"/etc/ssl/certs/ca.crt\""
+            - "--kubelet-certificate-authority=\"/etc/ssl/certs/ca.crt\""
           extraVolumes:
             - name: "kube-root-ca"
               configMap:
