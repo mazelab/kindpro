@@ -6,3 +6,5 @@ argocd:
 
 certManager:
   clusterIssuer: "my-ca-issuer"
+
+branch: main

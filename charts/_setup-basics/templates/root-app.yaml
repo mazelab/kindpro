@@ -10,6 +10,9 @@ spec:
     repoURL: {{ $.Values.repoUrl }}
     path: charts/basics
     targetRevision: {{ $.Values.branch }}
+    helm:
+      valuesObject:
+        branch: {{ $.Values.branch }}
   destination:
     server: https://kubernetes.default.svc
     namespace: default
