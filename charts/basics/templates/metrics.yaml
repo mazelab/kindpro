@@ -25,7 +25,5 @@ spec:
       valuesObject:
         metrics-server:
           apiService:
-            create: true
-            caBundle: selfsigned-issuer
             insecureSkipTLSVerify: false
 
