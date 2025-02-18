@@ -23,5 +23,9 @@ spec:
     targetRevision: {{ .Values.branch }}
     helm:
       valuesObject:
-
+        metrics-server:
+          apiService:
+            create: true
+            caBundle: selfsigned-issuer
+            insecureSkipTLSVerify: false
 
