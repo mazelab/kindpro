@@ -28,6 +28,9 @@ spec:
             insecureSkipTLSVerify: false
           extraArgs:
             - --kubelet-insecure-tls
+            - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+            - --kubelet-use-node-status-port
+            - --metric-resolution=15s
 #            - '--kubelet-certificate-authority="/etc/ssl/certs/ca.crt"'
 #          extraVolumes:
 #            - name: "kube-root-ca"
