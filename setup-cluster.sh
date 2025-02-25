@@ -17,5 +17,6 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
 
 # Install a minimal Argo CD version using the inline Helm chart
+helm dependency build charts/_init &&
 helm install argo-cd charts/_init/
 
