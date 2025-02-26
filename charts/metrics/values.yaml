@@ -1,9 +1,20 @@
 metrics-server:
   namespaceOverride: metrics
+  fullnameOverride: metrics-server
   extraArgs:
 #  - --cert-dir=/tmp
     #- --secure-port=10250
     - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
     - --kubelet-use-node-status-port
     - --metric-resolution=15s
-    - --kubelet-insecure-tls
+    #- --kubelet-insecure-tls
+    - --tls-cert-file=/tmp/tls/tls.crt
+    - --tls-private-key-file=/tmp/tls/tls.key
+  extraVolumes:
+    - name: tls
+      secret:
+        secretName: metrics-server-tls
+  extraVolumeMounts:
+    - name: tls
+      mountPath: /tmp/tls
+      readOnly: true
