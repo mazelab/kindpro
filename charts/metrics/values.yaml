@@ -1,7 +1,8 @@
 metrics-server:
+  namespaceOverride: metrics
   extraArgs:
 #  - --cert-dir=/tmp
-    - --secure-port=10250
+    #- --secure-port=10250
     - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
     - --kubelet-use-node-status-port
     - --metric-resolution=15s
