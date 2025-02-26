@@ -12,3 +12,4 @@ argo-cd:
   configs:
     params:
       application.namespaces: "default"
+      applicationsetcontroller.namespaces: "default"
