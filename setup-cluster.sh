@@ -18,5 +18,6 @@ kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.
 
 # Install a minimal Argo CD version using the inline Helm chart
 helm dependency build charts/_init &&
+kubectl create namespace argocd &&
 helm install argo-cd charts/_init/
 
