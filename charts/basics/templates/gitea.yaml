@@ -30,6 +30,7 @@ spec:
 
         service:
           http:
+            type: ClusterIP
             clusterIP: ""
             port: 80
             targetPort: 3000
