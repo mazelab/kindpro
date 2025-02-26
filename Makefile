@@ -19,11 +19,12 @@ stop: ## stop the test cluster
 	@echo "Cluster stopped"
 
 clean: ## delete the test cluster
-	@kind delete cluster
+	@kind delete cluster --name kindpro
 	@echo "Cluster deleted"
 
 reinstall-argocd:
-	@helm install argo-cd charts/argo-cd/
+	@helm delete argo-cd
+	@helm install argo-cd charts/_init/
 
 inital-deploy-root-app:
 	@helm template charts/_setup-basics --set branch=$(BRANCH),repoUrl=$(REPO_URL) | kubectl apply -f -
