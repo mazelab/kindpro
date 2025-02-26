@@ -31,6 +31,7 @@ spec:
         service:
           http:
             clusterIP: ""
+            port: 80
         persistence:
           enabled: true
         actions:
