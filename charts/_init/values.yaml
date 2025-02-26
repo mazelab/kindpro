@@ -9,7 +9,3 @@ argo-cd:
   server:
     extraArgs:
       - --insecure
-  configs:
-    params:
-      application.namespaces: "default"
-      applicationsetcontroller.namespaces: "default"
