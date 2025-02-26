@@ -1,5 +1,6 @@
 .PHONY: create-dirs create-cluster start stop clean  setup-all
 BRANCH ?= main
+REPO_URL ?= "https://github.com/mazelab/kindpro.git"
 
 create-dirs:
 	mkdir -p $(shell echo $$HOME)/.kindpro/data
@@ -25,9 +26,11 @@ reinstall-argocd:
 	@helm install argo-cd charts/argo-cd/
 
 inital-deploy-root-app:
-	@helm template charts/_setup-basics --set branch=$(BRANCH)  | kubectl apply -f -
+	@helm template charts/_setup-basics --set branch=$(BRANCH),repoUrl=$(REPO_URL) | kubectl apply -f -
+
 delete-root-app:
-	@helm template charts/_setup-basics --set branch=$(BRANCH)  | kubectl delete -f -
+	@helm template charts/_setup-basics --set branch=$(BRANCH),repoUrl=$(REPO_URL) | kubectl delete -f -
+
 get-self-signed-ca-certificate:
 	kubectl get secret root-secret -n certmanager -o jsonpath="{.data.ca\.crt}" | base64 --decode > rootCA.pem
 import-self-signed-ca-certificate-mac: get-self-signed-ca-certificate

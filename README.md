@@ -70,6 +70,16 @@ Stops the running kind cluster without deletion.
 
 ```bash
 make clean
-````
+```
 
 Warning, this is a destructive action. It will delete the cluster container.
+
+### Example: Passing a Different REPO_URL
+
+You can pass a different `REPO_URL` when invoking `make` by setting the environment variable `REPO_URL`. For example:
+
+```sh
+make REPO_URL="https://gitea.dev.local/mazehall/kindpro" inital-deploy-root-app
+```
+
+This will deploy the root application with the `REPO_URL` set to a local dev repository.
