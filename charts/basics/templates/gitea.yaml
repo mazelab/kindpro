@@ -32,6 +32,7 @@ spec:
           http:
             clusterIP: ""
             port: 80
+            targetPort: 3000
         persistence:
           enabled: true
         actions:
