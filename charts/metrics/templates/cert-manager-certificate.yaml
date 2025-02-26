@@ -11,3 +11,6 @@ spec:
   commonName: metrics-server
   dnsNames:
     - metrics-server.metrics.svc.cluster.local
+    - kindpro-worker2.cluster.local
+    - kindpro-control.cluster.local
+    - kindpro-worker.cluster.local
