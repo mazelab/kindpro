@@ -10,13 +10,15 @@ if [ "$CURRENT_CONTEXT" != "kind-kindpro" ]; then
   exit 1
 fi
 
+# Create the ingress-nginx namespace
+kubectl create namespace ingress-nginx
+
 # Apply the ingress-nginx controller manifest
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -n ingress-nginx -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
 # Wait for the ingress-nginx controller to be ready
 kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
 
 # Install a minimal Argo CD version using the inline Helm chart
 helm dependency build charts/_init &&
-helm install argo-cd charts/_init/
-
+helm install argo-cd charts/_init/ --namespace default

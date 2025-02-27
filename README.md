@@ -79,7 +79,7 @@ Warning, this is a destructive action. It will delete the cluster container.
 You can pass a different `REPO_URL` when invoking `make` by setting the environment variable `REPO_URL`. For example:
 
 ```sh
-make REPO_URL="http://gitea-http:3000/kindpro/kindpro" inital-deploy-root-app
+make REPO_URL="http://gitea-http.gitea/kindpro/kindpro" deploy-root-app
 ```
 
 This will deploy the root application with the `REPO_URL` set to a local dev repository.
