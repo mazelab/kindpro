@@ -18,8 +18,14 @@ nodes:
   - role: worker
     extraMounts:
       - hostPath: __HOME__/.kindpro/data
-        containerPath: /var/local-path-provisioner 
+        containerPath: /var/local-path-provisioner
+      - hostPath: __HOME__/.kindpro/.ssl/rootCA.pem
+        containerPath: /opt/ca-certificates/root-ca.pem
+        readOnly: true
   - role: worker
     extraMounts:
       - hostPath: __HOME__/.kindpro/data
         containerPath: /var/local-path-provisioner
+      - hostPath: __HOME__/.kindpro/.ssl/rootCA.pem
+        containerPath: /opt/ca-certificates/root-ca.pem
+        readOnly: true
