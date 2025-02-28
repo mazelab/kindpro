@@ -2,9 +2,10 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: {{ .Values.certManager.clusterIssuer }}
+  namespace: {{ .Values.namespace }}
 spec:
   ca:
-    secretName: root-ca-secret
+    secretName: root-secret
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate

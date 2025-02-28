@@ -11,7 +11,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: certmanager
+    namespace: {{ .Values.certManager.namespace }}
   syncPolicy:
     automated:
       selfHeal: true
@@ -22,7 +22,7 @@ spec:
     targetRevision: {{ .Values.branch }}
     helm:
       valuesObject:
-        namespace: certmanager
+        namespace: {{ .Values.certManager.namespace }}
         certManager:
           clusterIssuer: {{ .Values.certManager.clusterIssuer }}
 

@@ -11,7 +11,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: certmanager
+    namespace: {{ .Values.certManager.namespace }}
   syncPolicy:
     automated:
       selfHeal: true
@@ -27,4 +27,4 @@ spec:
           enabled: true
         global:
           leaderElection:
-            namespace: certmanager
+            namespace: {{ .Values.certManager.namespace }}
