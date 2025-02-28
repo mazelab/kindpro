@@ -1,4 +1,4 @@
 namespace: certmanager
 
 certManager:
-  clusterIssuer: selfsigned-issuer
+  clusterIssuer: root-ca-issuer
