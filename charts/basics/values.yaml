@@ -5,6 +5,6 @@ argocd:
   hostname: argocd.dev.local
 
 certManager:
-  clusterIssuer: "my-ca-issuer"
+  clusterIssuer: "root-ca-issuer"
 
 branch: main
