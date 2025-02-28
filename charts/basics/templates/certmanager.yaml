@@ -23,7 +23,6 @@ spec:
     targetRevision: v1.15.3
     helm:
       valuesObject:
-        issuerRef: {{ .Values.certManager.clusterIssuer }}
         crds:
           enabled: true
         global:

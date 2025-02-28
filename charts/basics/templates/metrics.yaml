@@ -24,3 +24,4 @@ spec:
     targetRevision: {{ .Values.branch }}
     helm:
       valuesObject:
+        issuerRef: {{ .Values.certManager.clusterIssuer }}
