@@ -13,16 +13,17 @@ metadata:
   name: {{ .Values.certManager.clusterIssuer }}-ca
   namespace: {{ .Values.namespace }}
 spec:
-  secretName: my-certificate-secret
+  secretName: dev-local-secret
   #isCA: true
   commonName: dev.local
   duration: 2160h # 90 Tage
   renewBefore: 360h # 15 Tage vor Ablauf erneuern
-#  privateKey:
-#    algorithm: ECDSA
-#    size: 256
+  privateKey:
+    algorithm: ECDSA
+    size: 256
   dnsNames:
     - dev.local
+    - '*.dev.local'
   issuerRef:
     name: {{ .Values.certManager.clusterIssuer }}
     kind: ClusterIssuer
