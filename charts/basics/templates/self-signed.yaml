@@ -19,7 +19,7 @@ spec:
   source:
     repoURL: https://github.com/mazelab/argocd-root-basics.git
     path: charts/my-selfsigned-ca
-    targetRevision: main
+    targetRevision: {{ .Values.branch }}
     helm:
       valuesObject:
         namespace: certmanager
