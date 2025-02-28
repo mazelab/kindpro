@@ -6,6 +6,6 @@ argocd:
 
 certManager:
   clusterIssuer: "root-ca-issuer"
-  namespace: certmanager
+  namespace: cert-manager
 
 branch: main
