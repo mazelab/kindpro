@@ -9,13 +9,14 @@ metrics-server:
     - --kubelet-use-node-status-port
     - --metric-resolution=15s
     #- --kubelet-insecure-tls
-    - --tls-cert-file=/tmp/tls/tls.crt
-    - --tls-private-key-file=/tmp/tls/tls.key
+    - --tls-cert-file=/certs/tls.crt
+    - --tls-private-key-file=/certs/tls.key
+    - --kubelet-certificate-authority=/certs/ca.crt
   extraVolumes:
     - name: tls
       secret:
         secretName: metrics-server-tls
   extraVolumeMounts:
     - name: tls
-      mountPath: /tmp/tls
+      mountPath: /certs
       readOnly: true
