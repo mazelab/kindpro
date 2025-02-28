@@ -1,3 +1,4 @@
+issuerRef: dummy
 metrics-server:
   namespaceOverride: metrics
   fullnameOverride: metrics-server

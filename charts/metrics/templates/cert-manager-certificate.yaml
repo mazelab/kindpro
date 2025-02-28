@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: metrics-server-tls
   issuerRef:
-    name: selfsigned-issuer
+    name: {{ .Values.issuerRef }}
     kind: ClusterIssuer
   commonName: metrics-server
   dnsNames:
