@@ -33,7 +33,7 @@ delete-root-app:
 	@helm template charts/_setup-basics --set branch=$(BRANCH),repoUrl=$(REPO_URL) | kubectl delete -f -
 
 get-self-signed-ca-certificate:
-	kubectl get secret root-secret -n certmanager -o jsonpath="{.data.ca\.crt}" | base64 --decode > rootCA.pem
+	kubectl get secret root-ca-secret -n cert-manager -o jsonpath="{.data.ca\.crt}" | base64 --decode > rootCA.pem
 import-self-signed-ca-certificate-mac: get-self-signed-ca-certificate
 	sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain rootCA.pem
 remove-self-signed-ca-certificate-mac:
