@@ -10,11 +10,16 @@ metrics-server:
     - --metric-resolution=15s
     #- --kubelet-insecure-tls
     - --cert-dir=/tmp
+    - --tls-cert-file=/etc/tls-certs/tls.crt
+    - --tls-private-key-file=/etc/tls-certs/tls.key
+    - --node-selector=eks.amazonaws.com/compute-type!=fargate # till this issue resolved https://github.com/aws/containers-roadmap/issues/1798
+
   extraVolumes:
     - name: tls
       secret:
         secretName: metrics-server-tls
+
   extraVolumeMounts:
     - name: tls
-      mountPath: /certs
+      mountPath: /etc/tls-certs
       readOnly: true

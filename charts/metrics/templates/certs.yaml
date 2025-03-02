@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: metrics-server-selfsigned
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: metrics-server
+spec:
+  secretName: metrics-server-tls
+  dnsNames:
+    - metrics-server
+    - metrics-server.{{ .Release.Namespace }}
+    - metrics-server.{{ .Release.Namespace }}.svc
+  issuerRef:
+    name: metrics-server-selfsigned
+    kind: Issuer
+    group: cert-manager.io
+  duration: 42720h0m0s
