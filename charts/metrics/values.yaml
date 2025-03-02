@@ -10,7 +10,6 @@ metrics-server:
     - --metric-resolution=15s
     #- --kubelet-insecure-tls
     - --cert-dir=/tmp
-    - --kubelet-certificate-authority=/certs/ca.crt
   extraVolumes:
     - name: tls
       secret:
