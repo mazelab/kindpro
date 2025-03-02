@@ -13,13 +13,18 @@ metrics-server:
     - --tls-cert-file=/etc/tls-certs/tls.crt
     - --tls-private-key-file=/etc/tls-certs/tls.key
     - --node-selector=eks.amazonaws.com/compute-type!=fargate # till this issue resolved https://github.com/aws/containers-roadmap/issues/1798
-
+    - --kubelet-certificate-authority=/etc/kubernetes/pki/ca.crt
   extraVolumes:
     - name: tls
       secret:
         secretName: metrics-server-tls
-
+    - name: kube-root-ca
+      configMap:
+        name: kube-root-ca.crt
   extraVolumeMounts:
     - name: tls
       mountPath: /etc/tls-certs
+      readOnly: true
+    - name: kube-root-ca
+      mountPath: /etc/kubernetes/pki
       readOnly: true
