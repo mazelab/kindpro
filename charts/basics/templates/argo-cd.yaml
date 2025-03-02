@@ -20,6 +20,7 @@ spec:
     targetRevision: 7.7.7
     helm:
       valuesObject:
+        namespaceOverride: argocd
         global:
           domain: {{ .Values.argocd.hostname }}
         dex:
