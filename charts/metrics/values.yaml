@@ -9,9 +9,8 @@ metrics-server:
     - --kubelet-use-node-status-port
     - --metric-resolution=15s
     #- --kubelet-insecure-tls
-    - --tls-cert-file=/certs/tls.crt
-    - --tls-private-key-file=/certs/tls.key
-    - --kubelet-certificate-authority=/certs/ca.crt
+    - --cert-dir=/tmp
+    - --kubelet-certificate-authority=/etc/kubernetes/pki/ca.crt
   extraVolumes:
     - name: tls
       secret:
