@@ -1,5 +1,5 @@
 # Ermitteln Sie den absoluten Pfad der Zertifikatsdateien
-CERT_CRT_PATH=$(realpath ~/.kindpro/.ssl/ca.pem)
+CERT_CRT_PATH=$(realpath ~/.kindpro/.ssl/ca.crt)
 CERT_KEY_PATH=$(realpath ~/.kindpro/.ssl/ca.key)
 
 # Erstellen Sie den Namespace für Cert-Manager

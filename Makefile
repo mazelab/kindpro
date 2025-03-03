@@ -22,6 +22,12 @@ clean: ## delete the test cluster
 	@kind delete cluster --name kindpro
 	@echo "Cluster deleted"
 
+generate-root-ca: ## generate ca file and write to ~/.kindpro/.ssl
+	@./generateRootCa.sh
+
+set-root-secret-ca: ## write root-ca-secret for the cert-manager
+	@./setup-root-ca-secret.sh
+
 reinstall-argocd:
 	@helm delete argo-cd
 	@helm install argo-cd charts/_init/
@@ -40,7 +46,7 @@ remove-self-signed-ca-certificate-mac:
 	sudo security delete-certificate -c "my-selfsigned-ca" /Library/Keychains/System.keychain
 
 get-initial-argo-password:
-	kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+	kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
-setup-all: create-cluster inital-deploy-root-app ## Set up the entire environment
+setup-all: create-cluster set-root-secret-ca inital-deploy-root-app ## Set up the entire environment
 	@echo "All setup tasks completed."

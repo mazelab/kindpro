@@ -6,8 +6,14 @@ nodes:
       - |
         apiVersion: kubeadm.k8s.io/v1beta3
         kind: ClusterConfiguration
-        caCertPath: "/etc/kubernetes/pki"
-        caKeyPath: "/etc/kubernetes/pki"
+        caCertPath: "/etc/kubernetes/pki/ca.pem"
+        apiServer:
+          extraArgs:
+           authorization-mode: "Node,RBAC"
+      - |
+        apiVersion: kubelet.config.k8s.io/v1beta1
+        kind: KubeletConfiguration
+        serverTLSBootstrap: true
       - |
         kind: InitConfiguration
         nodeRegistration:
@@ -21,74 +27,29 @@ nodes:
         hostPort: 443
         protocol: TCP
     extraMounts:
-        - hostPath: __HOME__/.kindpro/.ssl/ca.pem
+        - hostPath: __HOME__/.kindpro/.ssl/ca.crt
           containerPath: /etc/kubernetes/pki/ca.crt
           readOnly: true
         - hostPath: __HOME__/.kindpro/.ssl/ca.key
           containerPath: /etc/kubernetes/pki/ca.key
           readOnly: true
-        - hostPath: __HOME__/.kindpro/.ssl/apiserver.crt
-          containerPath: /etc/kubernetes/pki/apiserver.crt
-          readOnly: true
-        - hostPath: __HOME__/.kindpro/.ssl/apiserver.key
-          containerPath: /etc/kubernetes/pki/apiserver.key
-          readOnly: true
-        - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.crt
-          containerPath: /etc/kubernetes/pki/front-proxy-ca.crt
-          readOnly: true
-        - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.key
-          containerPath: /etc/kubernetes/pki/front-proxy-ca.key
-          readOnly: true
-        - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.csr
-          containerPath: /etc/kubernetes/pki/front-proxy-ca.csr
-          readOnly: true
   - role: worker
     extraMounts:
       - hostPath: __HOME__/.kindpro/data
         containerPath: /var/local-path-provisioner
-      - hostPath: __HOME__/.kindpro/.ssl/apiserver.crt
-        containerPath: /etc/kubernetes/pki/apiserver.crt
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/apiserver.key
-        containerPath: /etc/kubernetes/pki/apiserver.key
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/ca.pem
+      - hostPath: __HOME__/.kindpro/.ssl/ca.crt
         containerPath: /etc/kubernetes/pki/ca.crt
         readOnly: true
       - hostPath: __HOME__/.kindpro/.ssl/ca.key
         containerPath: /etc/kubernetes/pki/ca.key
         readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.crt
-        containerPath: /etc/kubernetes/pki/front-proxy-ca.crt
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.key
-        containerPath: /etc/kubernetes/pki/front-proxy-ca.key
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.csr
-        containerPath: /etc/kubernetes/pki/front-proxy-ca.csr
-        readOnly: true
   - role: worker
     extraMounts:
       - hostPath: __HOME__/.kindpro/data
         containerPath: /var/local-path-provisioner
-      - hostPath: __HOME__/.kindpro/.ssl/apiserver.crt
-        containerPath: /etc/kubernetes/pki/apiserver.crt
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/apiserver.key
-        containerPath: /etc/kubernetes/pki/apiserver.key
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/ca.pem
+      - hostPath: __HOME__/.kindpro/.ssl/ca.crt
         containerPath: /etc/kubernetes/pki/ca.crt
         readOnly: true
       - hostPath: __HOME__/.kindpro/.ssl/ca.key
         containerPath: /etc/kubernetes/pki/ca.key
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.crt
-        containerPath: /etc/kubernetes/pki/front-proxy-ca.crt
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.key
-        containerPath: /etc/kubernetes/pki/front-proxy-ca.key
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/front-proxy-ca.csr
-        containerPath: /etc/kubernetes/pki/front-proxy-ca.csr
         readOnly: true
