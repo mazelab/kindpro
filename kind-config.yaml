@@ -4,13 +4,6 @@ nodes:
   - role: control-plane
     kubeadmConfigPatches:
       - |
-        apiVersion: kubeadm.k8s.io/v1beta3
-        kind: ClusterConfiguration
-        caCertPath: "/etc/kubernetes/pki/ca.pem"
-        apiServer:
-          extraArgs:
-           authorization-mode: "Node,RBAC"
-      - |
         apiVersion: kubelet.config.k8s.io/v1beta1
         kind: KubeletConfiguration
         serverTLSBootstrap: true
