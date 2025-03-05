@@ -26,30 +26,11 @@ nodes:
       - containerPort: 443
         hostPort: 443
         protocol: TCP
-    extraMounts:
-        - hostPath: __HOME__/.kindpro/.ssl/ca.crt
-          containerPath: /etc/kubernetes/pki/ca.crt
-          readOnly: true
-        - hostPath: __HOME__/.kindpro/.ssl/ca.key
-          containerPath: /etc/kubernetes/pki/ca.key
-          readOnly: true
   - role: worker
     extraMounts:
       - hostPath: __HOME__/.kindpro/data
         containerPath: /var/local-path-provisioner
-      - hostPath: __HOME__/.kindpro/.ssl/ca.crt
-        containerPath: /etc/kubernetes/pki/ca.crt
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/ca.key
-        containerPath: /etc/kubernetes/pki/ca.key
-        readOnly: true
   - role: worker
     extraMounts:
       - hostPath: __HOME__/.kindpro/data
         containerPath: /var/local-path-provisioner
-      - hostPath: __HOME__/.kindpro/.ssl/ca.crt
-        containerPath: /etc/kubernetes/pki/ca.crt
-        readOnly: true
-      - hostPath: __HOME__/.kindpro/.ssl/ca.key
-        containerPath: /etc/kubernetes/pki/ca.key
-        readOnly: true
