@@ -9,8 +9,8 @@ metrics-server:
     - --kubelet-use-node-status-port
     - --metric-resolution=15s
     #- --kubelet-insecure-tls
-    - --tls-cert-file=/etc/tls-certs/TLS.crt
-    - --tls-private-key-file=/etc/tls-certs/TLS.key
+    - --tls-cert-file=/etc/tls-certs/tls.crt
+    - --tls-private-key-file=/etc/tls-certs/tls.key
     - --client-ca-file=/etc/tls-certs/ca.crt
     - --cert-dir=/tmp
     - --kubelet-certificate-authority=/etc/kubernetes/pki/ca.crt
